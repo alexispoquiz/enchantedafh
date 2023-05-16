@@ -11,6 +11,44 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/custom.css" />
+		<script src="sweetalert2.all.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script>
+			$(document).ready(function() {
+			  $('form').on('submit', function(event) {
+				event.preventDefault(); // Prevent the default form submission
+		
+				// Send the form data using AJAX
+				$.ajax({
+				  method: 'POST',
+				  url: 'https://formsubmit.co/ajax/f1aeb5f9b016030f2070da7fd33f90d1', // Replace with the URL to your form handling script
+				  dataType: 'json',
+				  accepts: 'application/json',
+				  data: {
+					name: $("input[name='name']").val(),
+					email: $("input[name='email']").val(),
+					message: $("textarea[name='message']").val()
+				  },
+				  success: function(response) {
+						swal({
+							title: "Thank you!",
+							text: "Your inquiry has been submitted successfully.",
+							icon: "success",
+							button: "OK",
+						});
+					},
+				  error: function(xhr, status, error) {
+						swal({
+							title: "Error",
+							text: "An error occurred. Please try again.",
+							icon: "error",
+							button: "OK",
+						});
+					}
+				});
+			  });
+			});
+		  </script>
 	</head>
 	<body class="is-preload">
 
@@ -400,11 +438,11 @@
 				</header>
 				<div class="content style4 featured">
 					<div class="container medium">
-						<form method="post" action="#">
+						<form action="https://formsubmit.co/f1aeb5f9b016030f2070da7fd33f90d1" method="post">
 							<div class="row gtr-50">
-								<div class="col-6 col-12-mobile"><input type="text" placeholder="Name" /></div>
-								<div class="col-6 col-12-mobile"><input type="text" placeholder="Email" /></div>
-								<div class="col-12"><textarea name="message" placeholder="Message"></textarea></div>
+								<div class="col-6 col-12-mobile"><input name="name" type="text" placeholder="Name" required /></div>
+								<div class="col-6 col-12-mobile"><input name="email" type="text" placeholder="Email" required /></div>
+								<div class="col-12"><textarea name="message" placeholder="Message" required></textarea></div>
 								<div class="col-12">
 									<ul class="actions special">
 										<li><input type="submit" class="button" value="Send Message" /></li>
