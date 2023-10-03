@@ -14,7 +14,7 @@ iframe {
 
 @media (min-aspect-ratio: 16/9) {
   .video-container iframe {
-    /* height = 100 * (9 / 16) = 56.25 
+    height = 100 * (9 / 16) = 56.25 
     height: 56.25vh;
   }
 }
