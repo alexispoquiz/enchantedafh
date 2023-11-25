@@ -1,35 +1,6 @@
-.video-container{
-  height: 100vw;
-  width: 100vh;
-}
-    
 iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 100vh;
-  transform: translate(-50%, -50%);
-}
-
-@media (min-aspect-ratio: 16/9) {
-  .video-container iframe {
-    height = 100 * (9 / 16) = 56.25 
-    height: 56.25vh;
-  }
-}
-    
-@media (max-aspect-ratio: 16/9) {
-  .video-container iframe {
-    /* width = 100 / (9 / 16) = 177.777777 */
-    width: 177.78vw;
-  }
-}
-
-#textovervideo{
-  position: absolute;
-  color: #FFFFFF;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 5px;
 }
